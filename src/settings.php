@@ -19,6 +19,13 @@ return [
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
-        ]
+        ],
+		
+		//auth
+		'auth' => [
+			'client_id' => getenv('GOOGLE_CLIENTID'),
+			'client_secret' => getenv('GOOGLE_SECRET'),
+			'redirect_uri' => getenv('APP_URL') . 'auth'
+		]
     ],
 ];

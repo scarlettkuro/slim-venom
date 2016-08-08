@@ -10,6 +10,10 @@ class Controller {
 		$this->app = $app;
 	}
 	
+	function getApp() {
+		return $this->app;
+	}
+	
 	function render($response, $template, $args) {
 		return $this->app->getContainer()->renderer->render($response, $template, $args);
 	}

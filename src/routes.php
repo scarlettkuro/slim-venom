@@ -1,7 +1,10 @@
 <?php
 // Routes
-use App\Controllers\HomeController;
+use App\Controllers\AuthController;
 
-$a = new HomeController($app);
+$auth = new AuthController($app);
 
-$app->get('/[{name}]', [$a, 'index']);
+$app->get('/login', [$auth, 'login']);
+$app->get('/auth', [$auth, 'auth']);
+$app->get('/', [$auth, 'index']);
+

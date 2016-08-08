@@ -11,7 +11,14 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-DEFINE('CONFIG', __DIR__ . '/../src/');
+DEFINE('ROOT', __DIR__ . '/../');
+DEFINE('CONFIG', ROOT . 'src/');
+
+//env variables for develop mode
+if(file_exists(ROOT . ".env")) {
+	$dotenv = new Dotenv\Dotenv(ROOT);
+    $dotenv->load();
+}
 
 session_start();
 
@@ -26,7 +33,7 @@ require CONFIG . 'dependencies.php';
 require CONFIG . 'middleware.php';
 
 // Register routes
-require CONFIG . 'src/routes.php';
+require CONFIG . 'routes.php';
 
 // Run app
 $app->run();
